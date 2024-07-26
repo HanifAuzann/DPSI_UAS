@@ -14,7 +14,7 @@ router.post('/register', async (req, res, next) => {
         // Buat akun baru
         const newUser = await User.create({ username, password, role });
         const id = newUser.User_ID
-        // Buat data admin jika role adalah 'staff'
+        // Buat data admin jika role adalah 'admin'
         if (role === 'admin') {
             await Admin.create({ Nama : username , Email, User_ID: id });
         }
